@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Colors */
+    --color-background-positive: #ffffff;
+    --color-background-negative: #000000;
+    --color-background-tint1: #f2f2f2;
+    --color-background-tint2: #ebebeb;
+    --color-background-tint3: #e0e0e0;
+    --color-background-tint4: #d9d9d9;
+
+    --color-text-positive: #ffffff;
+    --color-text-negative: #000000;
+    --color-text-tint1: #202020;
+    --color-text-tint2: #454545;
+
+    /* Primary */
+    --color-primary-base-default: #44f4d4;
+    --color-text-default: #000000;
+
+    --color-primary-base-hover: #19acae;
+    --color-text-hover: #000000;
+
+    --color-primary-base-selected: #44f4d4;
+    --color-text-selected: #000000;
+
+    --color-primary-base-selected-hover: #19acae;
+    --color-text-selected-hover: #000000;
+
+    /* Absolute White */
+    --color-absolute-white-base-default: #ffffff;
+    --color-absolute-white-text-default: #000000;
+
+    --color-absolute-white-base-hover: #c9c9c9;
+    --color-absolute-white-text-hover: #131313;
+
+    --color-absolute-white-base-selected: #ffffff;
+    --color-absolute-white-text-selected: #000000;
+
+    --color-absolute-white-base-selected-hover: #c9c9c9;
+    --color-absolute-white-text-selected-hover: #131313;
+
+    /* Absolute Black */
+    --color-absolute-black-base-default: #000000;
+    --color-absolute-black-text-default: #ffffff;
+
+    --color-absolute-black-base-hover: #131313;
+    --color-absolute-black-text-hover: #ffffff;
+
+    --color-absolute-black-base-selected: #000000;
+    --color-absolute-black-text-selected: #ffffff;
+
+    --color-absolute-black-base-selected-hover: #131313;
+    --color-absolute-black-text-selected-hover: #ffffff;
+
+    /* Error */
+    --color-error-base-default: #e8084b;
+    --color-error-text-default: #000000;
+
+    --color-error-base-hover: #af0b33;
+    --color-error-text-hover: #000000;
+
+    --color-error-base-selected: #e8084b;
+    --color-error-text-selected: #000000;
+
+    --color-error-base-selected-hover: #af0b33;
+    --color-error-text-selected-hover: #000000;
+
+    /* Alert colors */
+    --success-base-default: #44f49f;
+    --warning-base-default: #e9872d;
+    --error-base-default: #e8084b;
+
+    /* Typography */
+    --typography-t1-regular-weight: 400;
+    --typography-t1-medium-weight: 500;
+    --typography-t1-semibold-weight: 600;
+    --typography-t1-bold-weight: 700;
+    --typography-t1-size: 8px;
+    --typography-t1-lineheight: 10px;
+
+    --typography-t2-regular-weight: 500;
+    --typography-t2-medium-weight: 600;
+    --typography-t2-semibold-weight: 700;
+    --typography-t2-bold-weight: 800;
+    --typography-t2-size: 10px;
+    --typography-t2-lineheight: 14px;
+
+    --typography-t3-regular-weight: 500;
+    --typography-t3-medium-weight: 600;
+    --typography-t3-semibold-weight: 700;
+    --typography-t3-bold-weight: 800;
+    --typography-t3-size: 12px;
+    --typography-t3-lineheight: 16px;
+
+    --typography-t4-regular-weight: 500;
+    --typography-t4-medium-weight: 600;
+    --typography-t4-semibold-weight: 700;
+    --typography-t4-bold-weight: 800;
+    --typography-t4-size: 14px;
+    --typography-t4-lineheight: 20px;
+
+    --typography-t5-regular-weight: 500;
+    --typography-t5-medium-weight: 600;
+    --typography-t5-semibold-weight: 700;
+    --typography-t5-bold-weight: 800;
+    --typography-t5-size: 16px;
+    --typography-t5-lineheight: 24px;
+
+    --typography-t6-regular-weight: 500;
+    --typography-t6-medium-weight: 600;
+    --typography-t6-semibold-weight: 700;
+    --typography-t6-bold-weight: 800;
+    --typography-t6-size: 20px;
+    --typography-t6-lineheight: 28px;
+
+    --typography-t7-regular-weight: 500;
+    --typography-t7-medium-weight: 600;
+    --typography-t7-semibold-weight: 700;
+    --typography-t7-bold-weight: 800;
+    --typography-t7-size: 24px;
+    --typography-t7-lineheight: 32px;
+
+    --typography-t8-regular-weight: 500;
+    --typography-t8-medium-weight: 600;
+    --typography-t8-semibold-weight: 700;
+    --typography-t8-bold-weight: 800;
+    --typography-t8-size: 30px;
+    --typography-t8-lineheight: 36px;
+
+    --typography-t9-regular-weight: 500;
+    --typography-t9-medium-weight: 600;
+    --typography-t9-semibold-weight: 700;
+    --typography-t9-bold-weight: 800;
+    --typography-t9-size: 36px;
+    --typography-t9-lineheight: 48px;
+
+    --typography-t10-regular-weight: 500;
+    --typography-t10-medium-weight: 600;
+    --typography-t10-semibold-weight: 700;
+    --typography-t10-bold-weight: 800;
+    --typography-t10-size: 42px;
+    --typography-t10-lineheight: 50px;
+
+    --typography-t11-regular-weight: 500;
+    --typography-t11-medium-weight: 600;
+    --typography-t11-semibold-weight: 700;
+    --typography-t11-bold-weight: 800;
+    --typography-t11-size: 60px;
+    --typography-t11-lineheight: 72px;
+
+    /* Spacings */
+    --spacing-s0: 0px;
+    --spacing-s2: 2px;
+    --spacing-s4: 4px;
+    --spacing-s6: 6px;
+    --spacing-s8: 8px;
+    --spacing-s12: 12px;
+    --spacing-s16: 16px;
+    --spacing-s24: 24px;
+    --spacing-s32: 32px;
+    --spacing-s40: 40px;
+    --spacing-s44: 44px;
+    --spacing-s48: 48px;
+    --spacing-s56: 56px;
+    --spacing-s64: 64px;
+    --spacing-s72: 72px;
+    --spacing-s88: 88px;
+    --spacing-s112: 112px;
+    --spacing-s136: 136px;
+    --spacing-s160: 160px;
+
+    /* Animation timings */
+    --animation-timing-fast: 100ms;
+    --animation-timing-default: 300ms;
+    --animation-timing-medium: 500ms;
+    --animation-timing-long: 1000ms;
+    --animation-timing-heavy: 2000ms;
+
+    /* Animation easings */
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-in: cubic-bezier(0.42, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.58, 1);
+    --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+    --practical: cubic-bezier(0.3, 0.15, 0.5, 1);
+    --expressive: cubic-bezier(0.5, 0.05, 0.3, 1);
+    --bounce: cubic-bezier(0.5, -0.4, 0.55, 1.4);
+    --linear: cubic-bezier(0, 0, 1, 1);
+
+    /* old */
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+
+    --primary: 169 89% 61%;
+    --primary-foreground: 60 9.1% 97.8%;
+
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 20 14.3% 4.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Colors */
+    --color-background-positive: #000000;
+    --color-background-negative: #ffffff;
+    --color-background-tint1: #121212;
+    --color-background-tint2: #161616;
+    --color-background-tint3: #1a1a1a;
+    --color-background-tint4: #242424;
+
+    --color-text-positive: #000000;
+    --color-text-negative: #ffffff;
+    --color-text-tint1: #a6a6a6;
+    --color-text-tint2: #676767;
+
+    --color-primary-base-default: #44f4d4;
+    --color-text-default: #000000;
+
+    --color-primary-base-hover: #19acae;
+    --color-text-hover: #000000;
+
+    --color-primary-base-selected: #44f4d4;
+    --color-text-selected: #000000;
+
+    --color-primary-base-selected-hover: #19acae;
+    --color-text-selected-hover: #000000;
+
+    /* Typography */
+    --typography-t1-regular-weight: 400;
+    --typography-t1-medium-weight: 500;
+    --typography-t1-semibold-weight: 600;
+    --typography-t1-bold-weight: 700;
+    --typography-t1-size: 8px;
+    --typography-t1-lineheight: 10px;
+
+    --typography-t2-regular-weight: 500;
+    --typography-t2-medium-weight: 600;
+    --typography-t2-semibold-weight: 700;
+    --typography-t2-bold-weight: 800;
+    --typography-t2-size: 10px;
+    --typography-t2-lineheight: 14px;
+
+    --typography-t3-regular-weight: 500;
+    --typography-t3-medium-weight: 600;
+    --typography-t3-semibold-weight: 700;
+    --typography-t3-bold-weight: 800;
+    --typography-t3-size: 12px;
+    --typography-t3-lineheight: 16px;
+
+    --typography-t4-regular-weight: 500;
+    --typography-t4-medium-weight: 600;
+    --typography-t4-semibold-weight: 700;
+    --typography-t4-bold-weight: 800;
+    --typography-t4-size: 14px;
+    --typography-t4-lineheight: 20px;
+
+    --typography-t5-regular-weight: 500;
+    --typography-t5-medium-weight: 600;
+    --typography-t5-semibold-weight: 700;
+    --typography-t5-bold-weight: 800;
+    --typography-t5-size: 16px;
+    --typography-t5-lineheight: 24px;
+
+    --typography-t6-regular-weight: 500;
+    --typography-t6-medium-weight: 600;
+    --typography-t6-semibold-weight: 700;
+    --typography-t6-bold-weight: 800;
+    --typography-t6-size: 20px;
+    --typography-t6-lineheight: 28px;
+
+    --typography-t7-regular-weight: 500;
+    --typography-t7-medium-weight: 600;
+    --typography-t7-semibold-weight: 700;
+    --typography-t7-bold-weight: 800;
+    --typography-t7-size: 24px;
+    --typography-t7-lineheight: 32px;
+
+    --typography-t8-regular-weight: 500;
+    --typography-t8-medium-weight: 600;
+    --typography-t8-semibold-weight: 700;
+    --typography-t8-bold-weight: 800;
+    --typography-t8-size: 30px;
+    --typography-t8-lineheight: 36px;
+
+    --typography-t9-regular-weight: 500;
+    --typography-t9-medium-weight: 600;
+    --typography-t9-semibold-weight: 700;
+    --typography-t9-bold-weight: 800;
+    --typography-t9-size: 36px;
+    --typography-t9-lineheight: 48px;
+
+    --typography-t10-regular-weight: 500;
+    --typography-t10-medium-weight: 600;
+    --typography-t10-semibold-weight: 700;
+    --typography-t10-bold-weight: 800;
+    --typography-t10-size: 42px;
+    --typography-t10-lineheight: 50px;
+
+    --typography-t11-regular-weight: 500;
+    --typography-t11-medium-weight: 600;
+    --typography-t11-semibold-weight: 700;
+    --typography-t11-bold-weight: 800;
+    --typography-t11-size: 60px;
+    --typography-t11-lineheight: 72px;
+
+    /* Spacings */
+    --spacing-s0: 0px;
+    --spacing-s2: 2px;
+    --spacing-s4: 4px;
+    --spacing-s6: 6px;
+    --spacing-s8: 8px;
+    --spacing-s12: 12px;
+    --spacing-s16: 16px;
+    --spacing-s24: 24px;
+    --spacing-s32: 32px;
+    --spacing-s40: 40px;
+    --spacing-s44: 44px;
+    --spacing-s48: 48px;
+    --spacing-s56: 56px;
+    --spacing-s64: 64px;
+    --spacing-s72: 72px;
+    --spacing-s88: 88px;
+    --spacing-s112: 112px;
+    --spacing-s136: 136px;
+    --spacing-s160: 160px;
+
+    /* Animation timings */
+    --animation-timing-fast: 100ms;
+    --animation-timing-default: 300ms;
+    --animation-timing-medium: 500ms;
+    --animation-timing-long: 1000ms;
+    --animation-timing-heavy: 2000ms;
+
+    /* Animation easings */
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-in: cubic-bezier(0.42, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.58, 1);
+    --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+    --practical: cubic-bezier(0.3, 0.15, 0.5, 1);
+    --expressive: cubic-bezier(0.5, 0.05, 0.3, 1);
+    --bounce: cubic-bezier(0.5, -0.4, 0.55, 1.4);
+    --linear: cubic-bezier(0, 0, 1, 1);
+
+    /* old */
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+
+    --primary: 169 89% 61%;
+    --primary-foreground: 24 9.8% 10%;
+
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 24 5.7% 82.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 900;
+  src: url('./assets/fonts/Mont-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 700;
+  src: url('./assets/fonts/Mont-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 200;
+  src: url('./assets/fonts/Mont-Extralight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 100;
+  src: url('./assets/fonts/Mont-Hairline.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 800;
+  src: url('./assets/fonts/Mont-Heavy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 300;
+  src: url('./assets/fonts/Mont-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 500;
+  src: url('./assets/fonts/Mont-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 400;
+  src: url('./assets/fonts/Mont-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 600;
+  src: url('./assets/fonts/Mont-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mont';
+  font-weight: 100;
+  src: url('./assets/fonts/Mont-Thin.ttf') format('truetype');
+}
+
+@layer base {
+  html {
+    font-family: 'Mont', sans-serif;
+  }
+}
