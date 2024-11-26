@@ -1,12 +1,23 @@
-import AppProvider from './providers';
-import AppRouter from './routes';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SideBar from '@/components/shared/sidebar';
+import CharactersList from '@/pages/CharactersList';
+import CharacterInfo from '@/pages/CharacterInfo';
+import Favorites from '@/pages/Favorites';
 
 const App = () => {
   return (
-    <AppProvider>
-      <AppRouter />
-    </AppProvider>
+    <BrowserRouter>
+      <div className="flex">
+        <SideBar />
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/character-list" element={<CharactersList />} />
+            <Route path="/character-info" element={<CharacterInfo />} />
+            <Route path="/favorites" element={<Favorites />} />
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 };
 
