@@ -1,6 +1,6 @@
 # React SWAPI App 🌌  
 
-A sleek and responsive React application that showcases Star Wars characters using the SWAPI API. This project integrates **Google** for secure access, and utilizes state management with **MobX**, **Zustand**, or **Redux**.  
+A sleek and responsive React application that showcases Star Wars characters using the SWAPI API. This project integrates **Google** for secure access, and utilizes state management with **Redux**.  
 
 🚀 **Live Demo:**
 
@@ -27,16 +27,15 @@ A sleek and responsive React application that showcases Star Wars characters usi
 ## 🔒 Access Control  
 
 Authentication is required to access the application:  
-- **Google Authentication**  
-- **Facebook Authentication**  
+- **Google Authentication** 
 
 ---
 
 ## 📚 Tech Stack  
 
 - **Frontend:** React, CSS (or Preprocessor)  
-- **State Management:** MobX / Zustand / Redux  
-- **Authentication:** Firebase (Google & Facebook Auth)  
+- **State Management:** Redux  
+- **Authentication:** Google
 - **API:** [SWAPI](https://swapi.dev/api/people)  
 
 ---
@@ -44,8 +43,7 @@ Authentication is required to access the application:
 ## 📖 Setup Instructions  
 
 ### Prerequisites  
-- Node.js and npm installed.  
-- Firebase project setup for authentication.  
+- Node.js and npm installed. 
 
 ### Installation  
 1. Clone the repository:  
