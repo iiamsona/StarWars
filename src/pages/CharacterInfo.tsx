@@ -19,6 +19,7 @@ const CharacterInfo = () => {
 
   const [people, setPeople] = useState<Array<any>>([]);
   const [searchValue, setSearchValue] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const getPeople = async () => {
     try {
@@ -52,6 +53,8 @@ const CharacterInfo = () => {
       setPeople(peopleWithDetails);
     } catch (error) {
       console.error('Error fetching data: ', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -71,69 +74,67 @@ const CharacterInfo = () => {
     return filteredList;
   }, [people, searchValue, filter, likedCards]);
 
+  if (loading) {
+    return <div className="flex h-full items-center justify-center text-white">Loading...</div>;
+  }
+
   return (
-    <div className="flex h-[100vh] flex-col bg-primaryBig bg-cover bg-center">
-      <div className="mt-8 flex-1 overflow-y-auto p-4">
+    <div className="flex h-screen flex-col bg-primaryBig bg-cover bg-center">
+      <div className="flex-1 overflow-y-auto p-10">
         {filteredPeople.map((person, index) => (
-          <Card key={person.name} className="mb-4">
+          <Card key={person.name} className="mb-4 transform transition-transform hover:scale-105">
             <CardContent>
               <CardDescription>
                 <CardHeader>
                   <CardTitle>
-                    <p className="fontWeight-t2-semibold text-[25px] text-white">{person.name}</p>
+                    <p className="text-2xl font-semibold text-white">{person.name}</p>
                   </CardTitle>
                 </CardHeader>
-                <CardFooter className="flex justify-between">
-                  <div>
-                    <p className="fontWeight-t2-semibold font-t4 text-[18px] text-white">
-                      Gender: {person.gender}
-                    </p>
-                    <p className="fontWeight-t2-semibold font-t4 text-[18px] text-white">
-                      Mass: {person.mass}
-                    </p>
-                    <p className="fontWeight-t2-semibold font-t4 text-[18px] text-white">
-                      Height: {person.height}
-                    </p>
+                <CardFooter className="flex flex-col justify-between md:flex-row">
+                  <div className="flex flex-col">
+                    <p className="text-lg font-semibold text-white">Gender: {person.gender}</p>
+                    <p className="text-lg font-semibold text-white">Mass: {person.mass}</p>
+                    <p className="text-lg font-semibold text-white">Height: {person.height}</p>
                   </div>
-                  <div>
-                    <p className="fontWeight-t2-semibold font-t4 text-[18px] text-white">
+                  <div className="flex flex-col">
+                    <p className="text-lg font-semibold text-white">
                       Hair color: {person.hair_color}
                     </p>
-                    <p className="fontWeight-t2-semibold font-t4 text-[18px] text-white">
+                    <p className="text-lg font-semibold text-white">
                       Eye color: {person.eye_color}
                     </p>
-                    <p className="fontWeight-t2-semibold font-t4 text-[18px] text-white">
+                    <p className="text-lg font-semibold text-white">
                       Homeworld: {person.homeworldName}
                     </p>
                   </div>
-                  <p className="fontWeight-t2-semibold font-t4 text-[18px] text-white">Films:</p>
-                  <div className="flex flex-col gap-2 text-white">
-                    {person.films.length > 0 ? (
-                      person.films.map((film) => (
-                        <span key={film.name} className="text-white">
-                          {film}
-                        </span>
-                      ))
-                    ) : (
-                      <span>None</span>
-                    )}
+                  <div className="mt-4 flex flex-col">
+                    <p className="text-lg font-semibold text-white">Films:</p>
+                    <div className="flex flex-col gap-2 text-white">
+                      {person.films.length > 0 ? (
+                        person.films.map((film) => (
+                          <span key={film} className="text-white">
+                            {film}
+                          </span>
+                        ))
+                      ) : (
+                        <span>None</span>
+                      )}
+                    </div>
                   </div>
-
-                  <p className="fontWeight-t2-semibold font-t4 mt-4 text-[18px] text-white">
-                    Vehicles:
-                  </p>
-                  <div className="flex flex-col items-center justify-center gap-2 self-center text-white">
-                    {person.vehicles.length > 0 ? (
-                      person.vehicles.map((vehicle) => (
-                        <span key={vehicle.name} className="text-white">
-                          {vehicle}
-                        </span>
-                      ))
-                    ) : (
-                      <span>None</span>
-                    )}
+                  <div className="mt-4 flex flex-col">
+                    <p className="text-lg font-semibold text-white">Vehicles:</p>
+                    <div className="flex flex-col items-center justify-center gap-2 text-white">
+                      {person.vehicles.length > 0 ? (
+                        person.vehicles.map((vehicle) => (
+                          <span key={vehicle} className="text-white">
+                            {vehicle}
+                          </span>
+                        ))
+                      ) : (
+                        <span>None</span>
+                      )}
+                    </div>
                   </div>
-
                   <button
                     onClick={() => dispatch(toggleLiked(index))}
                     className="rounded-full p-2 transition-colors"

@@ -23,7 +23,7 @@ const FilterAndSearch = ({ searchValue, setSearchValue, setFilter }) => {
         <DropdownMenu.Trigger className="bg-absoluteBlack-hover p-s8 flex items-center rounded-primary">
           <IconFilter className="mb-4 ml-2 h-[24px] w-[24px]" />
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content className="w-s136 bg-absoluteBlack-hover absolute z-10 flex flex-col self-center rounded-primary border-none bg-backgroundColor-starwarorange p-2 shadow-lg">
+        <DropdownMenu.Content className="w-s136 bg-absoluteBlack-hover absolute z-10 flex flex-col self-center rounded-primary border-none bg-backgroundColor-starwargray p-2 shadow-lg">
           {filterOptions.map((option) => (
             <DropdownMenu.Item
               key={option}

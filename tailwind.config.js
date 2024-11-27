@@ -25,7 +25,7 @@ export const theme = {
     backgroundImage: {
       primary: "url('/src/assets/images/bg-image.jpg')",
       primaryBig: "url('/src/assets/images/bg-image-big.webp')",
-      wars: "url('/src/assets/images/wars.jpeg')"
+      bg: "url('/src/assets/images/bg.jpeg')"
     },
     borderRadius: {
       primary: '24px',
