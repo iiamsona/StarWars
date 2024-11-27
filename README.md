@@ -1,8 +1,6 @@
 # React SWAPI App 🌌  
 
-A sleek and responsive React application that showcases Star Wars characters using the SWAPI API. This project integrates **Google** for secure access, and utilizes state management with **Redux**.  
-
-🚀 **Live Demo:**
+A sleek and responsive React application that showcases Star Wars characters using the SWAPI API. This project integrates **Google** for secure access, and utilizes state management with **Redux**.
 
 ---
 
