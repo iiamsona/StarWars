@@ -1,9 +1,8 @@
-// store/slices/characterSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   likedCards: [],
-  filter: 'All', // Can be 'All' or 'Liked'
+  filter: 'All'
 };
 
 const characterSlice = createSlice({
@@ -20,8 +19,8 @@ const characterSlice = createSlice({
     },
     setFilter: (state, action) => {
       state.filter = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const { toggleLiked, setFilter } = characterSlice.actions;

@@ -8,11 +8,11 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from '@/components/ui/card';
 import { FilterAndSearch } from '@/components/ui/filter';
 
-const CharacterInfo = () => {
+const CharacterList = () => {
   const dispatch = useDispatch();
   const likedCards = useSelector((state) => state.character.likedCards);
   const filter = useSelector((state) => state.character.filter);
@@ -49,8 +49,7 @@ const CharacterInfo = () => {
 
   return (
     <div className="bg-primaryBig flex h-[100vh] flex-col bg-cover bg-center">
-      <h1 className="grid self-center">Star Wars Characters</h1>
-      <div className="ml-2 w-48">
+      <div className="ml-2 mt-8 w-48">
         <FilterAndSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
@@ -69,7 +68,7 @@ const CharacterInfo = () => {
                 </CardHeader>
                 <CardFooter className="flex items-center justify-between">
                   <p className="fontWeight-t2-semibold font-t4 text-[18px] text-white">
-                    gender {person.gender}
+                    Gender: {person.gender}
                   </p>
                   <button
                     onClick={() => dispatch(toggleLiked(index))}
@@ -104,4 +103,4 @@ const CharacterInfo = () => {
   );
 };
 
-export default CharacterInfo;
+export default CharacterList;
