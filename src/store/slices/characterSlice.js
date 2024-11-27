@@ -11,14 +11,18 @@ const characterSlice = createSlice({
   reducers: {
     toggleLiked: (state, action) => {
       const index = action.payload;
-      if (state.likedCards.includes(index)) {
-        state.likedCards = state.likedCards.filter((i) => i !== index);
-      } else {
-        state.likedCards.push(index);
-      }
+      return {
+        ...state,
+        likedCards: state.likedCards.includes(index)
+          ? state.likedCards.filter((i) => i !== index)
+          : [...state.likedCards, index]
+      };
     },
     setFilter: (state, action) => {
-      state.filter = action.payload;
+      return {
+        ...state,
+        filter: action.payload
+      };
     }
   }
 });

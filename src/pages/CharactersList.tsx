@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleLiked, setFilter } from '@/store/slices/characterSlice';
+import { toggleLiked, setFilter } from '@/store/slices/characterSlice.js';
 import {
   Card,
   CardContent,
@@ -11,13 +11,14 @@ import {
   CardTitle
 } from '@/components/ui/card';
 import { FilterAndSearch } from '@/components/ui/filter';
+import type { RootState } from '@/store';
 
 const CharacterList = () => {
   const dispatch = useDispatch();
-  const likedCards = useSelector((state) => state.character.likedCards);
-  const filter = useSelector((state) => state.character.filter);
+  const likedCards = useSelector((state: RootState) => state.character.likedCards);
+  const filter = useSelector((state: RootState) => state.character.filter);
 
-  const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState<Array<any>>([]);
   const [searchValue, setSearchValue] = useState('');
 
   const getPeople = () => {
@@ -48,17 +49,17 @@ const CharacterList = () => {
   }, [people, searchValue, filter, likedCards]);
 
   return (
-    <div className="bg-primaryBig flex h-[100vh] flex-col bg-cover bg-center">
+    <div className="flex h-[100vh] flex-col bg-primaryBig bg-cover bg-center">
       <div className="ml-2 mt-8 w-48">
         <FilterAndSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
-          setFilter={(filter) => dispatch(setFilter(filter))}
+          setFilter={(newFilter) => dispatch(setFilter(newFilter))}
         />
       </div>
       <div className="flex-1 overflow-y-auto p-4">
         {filteredPeople.map((person, index) => (
-          <Card key={index} className="mb-4">
+          <Card key={person.name} className="mb-4">
             <CardContent>
               <CardDescription>
                 <CardHeader>
@@ -73,8 +74,9 @@ const CharacterList = () => {
                   <button
                     onClick={() => dispatch(toggleLiked(index))}
                     className="rounded-full p-2 transition-colors"
+                    aria-label={`Toggle like for ${person.name}`}
                   >
-                    <div className={`relative h-[90px] w-[90px]`}>
+                    <div className="relative h-[90px] w-[90px]">
                       <div
                         className={`absolute left-[50px] top-0 h-[80px] w-[50px]
                           ${likedCards.includes(index) || filter === 'Liked' ? 'before:bg-red-500' : 'before:bg-white'} 

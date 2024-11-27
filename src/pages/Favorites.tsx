@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleLiked } from '@/store/slices/characterSlice';
 import axios from 'axios';
+import { toggleLiked } from '@/store/slices/characterSlice.js';
 import {
   Card,
   CardContent,
@@ -11,11 +11,12 @@ import {
   CardTitle
 } from '@/components/ui/card';
 import BabyYoda from '@/assets/images/Baby-Yoda-Crying.jpg';
+import type { RootState } from '@/store';
 
 const Favorites = () => {
   const dispatch = useDispatch();
-  const likedCards = useSelector((state) => state.character.likedCards);
-  const [people, setPeople] = useState([]);
+  const likedCards = useSelector((state: RootState) => state.character.likedCards);
+  const [people, setPeople] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const Favorites = () => {
   }
 
   return (
-    <div className="bg-primaryBig flex h-[100vh] flex-col bg-cover bg-center">
+    <div className="flex h-[100vh] flex-col bg-primaryBig bg-cover bg-center">
       <h1 className="mb-4 mt-8 grid self-center text-3xl font-bold text-white">
         Favorite Star Wars Characters
       </h1>
@@ -71,9 +72,10 @@ const Favorites = () => {
                       </p>
                       <button
                         onClick={() => dispatch(toggleLiked(originalIndex))}
-                        className={`rounded-full p-2 transition-colors `}
+                        className="rounded-full p-2 transition-colors"
+                        aria-label={`Toggle like for ${person.name}`}
                       >
-                        <div className={`relative h-[90px] w-[90px]`}>
+                        <div className="relative h-[90px] w-[90px]">
                           <div
                             className={`absolute left-[50px] top-0 h-[80px] w-[50px]
                           ${likedCards.includes(originalIndex) ? 'before:bg-red-500' : 'before:bg-white'} 

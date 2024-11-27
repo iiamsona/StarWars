@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleLiked } from '@/store/slices/characterSlice';
+import { toggleLiked } from '@/store/slices/characterSlice.js';
 import {
   Card,
   CardContent,
@@ -10,13 +10,14 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
+import type { RootState } from '@/store';
 
 const CharacterInfo = () => {
   const dispatch = useDispatch();
-  const likedCards = useSelector((state) => state.character.likedCards);
-  const filter = useSelector((state) => state.character.filter);
+  const likedCards = useSelector((state: RootState) => state.character.likedCards);
+  const filter = useSelector((state: RootState) => state.character.filter);
 
-  const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState<Array<any>>([]);
   const [searchValue, setSearchValue] = useState('');
 
   const getPeople = async () => {
@@ -24,7 +25,6 @@ const CharacterInfo = () => {
       const response = await axios.get('https://swapi.dev/api/people/');
       const peopleData = response.data.results;
 
-      // Fetch homeworld, films, and vehicles for each person
       const peopleWithDetails = await Promise.all(
         peopleData.map(async (person) => {
           const homeworldName = person.homeworld
@@ -72,10 +72,10 @@ const CharacterInfo = () => {
   }, [people, searchValue, filter, likedCards]);
 
   return (
-    <div className="bg-primaryBig flex h-[100vh] flex-col bg-cover bg-center">
+    <div className="flex h-[100vh] flex-col bg-primaryBig bg-cover bg-center">
       <div className="mt-8 flex-1 overflow-y-auto p-4">
         {filteredPeople.map((person, index) => (
-          <Card key={index} className="mb-4">
+          <Card key={person.name} className="mb-4">
             <CardContent>
               <CardDescription>
                 <CardHeader>
@@ -109,8 +109,8 @@ const CharacterInfo = () => {
                   <p className="fontWeight-t2-semibold font-t4 text-[18px] text-white">Films:</p>
                   <div className="flex flex-col gap-2 text-white">
                     {person.films.length > 0 ? (
-                      person.films.map((film, filmIndex) => (
-                        <span key={filmIndex} className="text-white">
+                      person.films.map((film) => (
+                        <span key={film.name} className="text-white">
                           {film}
                         </span>
                       ))
@@ -124,8 +124,8 @@ const CharacterInfo = () => {
                   </p>
                   <div className="flex flex-col items-center justify-center gap-2 self-center text-white">
                     {person.vehicles.length > 0 ? (
-                      person.vehicles.map((vehicle, vehicleIndex) => (
-                        <span key={vehicleIndex} className="text-white">
+                      person.vehicles.map((vehicle) => (
+                        <span key={vehicle.name} className="text-white">
                           {vehicle}
                         </span>
                       ))
@@ -137,8 +137,9 @@ const CharacterInfo = () => {
                   <button
                     onClick={() => dispatch(toggleLiked(index))}
                     className="rounded-full p-2 transition-colors"
+                    aria-label={`Toggle like for ${person.name}`}
                   >
-                    <div className={`relative h-[90px] w-[90px]`}>
+                    <div className="relative h-[90px] w-[90px]">
                       <div
                         className={`absolute left-[50px] top-0 h-[80px] w-[50px]
                           ${likedCards.includes(index) || filter === 'Liked' ? 'before:bg-red-500' : 'before:bg-white'} 
